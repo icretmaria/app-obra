@@ -16,7 +16,7 @@ android.permissions = CAMERA, ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, WRIT
 
 android.api = 33
 android.minapi = 21
-android.ndk_api = 21
+android.ndk = 25b
 android.private_storage = True
 android.accept_sdk_license = True
 
