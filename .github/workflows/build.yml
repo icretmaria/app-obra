@@ -36,9 +36,4 @@ jobs:
         GRADLE_OPTS: "-Dorg.gradle.daemon=false"
         USE_CCACHE: "0"
         NDK_CCACHE: "0"
-
-    - name: Disponibilizando o arquivo APK para download
-      uses: actions/upload-artifact@v4
-      with:
-        name: Aplicativo_Obra_Pronto
-        path: bin/*.apk
+        APP_ANDROID_NDK: "25b"
