@@ -22,10 +22,11 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y libsqlite3-dev bsdmainutils
-        sudo apt-get install -y build-essential ccache git libffi-dev libssl-dev xclip libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+        sudo apt-get install -y build-essential git libffi-dev libssl-dev xclip libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
         sudo apt-get install -y openjdk-17-jdk-headless unzip zip
         pip install --upgrade pip
-        pip install buildozer cython git+https://github.com/kivy/kivy.git@master
+        pip install cython==0.29.36
+        pip install buildozer pythonforandroid==2024.1.21
 
     - name: Compilando o aplicativo com Buildozer
       run: |
