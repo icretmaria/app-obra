@@ -7,7 +7,7 @@ source.include_exts = py,png,jpg,kv,atlas
 version = 1.0
 
 # BIBLIOTECAS REQUISITADAS PELO SISTEMA
-requirements = python3,kivy==2.3.0,plyer,reportlab,pillow
+requirements = python3,kivy==2.3.0,plyer,reportlab==4.1.0,pillow==10.2.0
 
 orientation = portrait
 
