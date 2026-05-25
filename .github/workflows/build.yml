@@ -29,7 +29,7 @@ jobs:
         pip install git+https://github.com/kivy/buildozer.git@master
         pip install git+https://github.com/kivy/python-for-android.git@master
 
-    - name: Limpando caches conflitantes do Buildozer
+    - name: Limpando caches locais e globais
       run: |
         rm -rf .buildozer
         rm -rf ~/.buildozer
@@ -41,4 +41,3 @@ jobs:
         GRADLE_OPTS: "-Dorg.gradle.daemon=false"
         USE_CCACHE: "0"
         NDK_CCACHE: "0"
-        APP_ANDROID_NDK: "25b"
