@@ -1,0 +1,40 @@
+name: Compilador Automatico de APK
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - name: Baixando o codigo do repositorio
+      uses: actions/checkout@v4
+
+    - name: Configurando o ambiente Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - name: Instalando dependencias do sistema Linux
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libsqlite3-dev lldd gperf recode indexhtml manual-page-repository bsdmainutils
+        sudo apt-get install -y build-essential ccache git libffi-dev libssl-dev xclip libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev
+        sudo apt-get install -y openjdk-17-jdk-headless unzip zip
+        pip install --upgrade pip
+        pip install buildozer cython git+https://github.com/kivy/kivy.git@master
+
+    - name: Compilando o aplicativo com Buildozer
+      run: |
+        yes | buildozer android debug
+      env:
+        GRADLE_OPTS: "-Dorg.gradle.daemon=false"
+
+    - name: Disponibilizando o arquivo APK para download
+      uses: actions/upload-artifact@v4
+      with:
+        name: Aplicativo_Obra_Pronto
+        path: bin/*.apk
