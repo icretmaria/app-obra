@@ -29,6 +29,11 @@ jobs:
         pip install git+https://github.com/kivy/buildozer.git@master
         pip install git+https://github.com/kivy/python-for-android.git@master
 
+    - name: Limpando caches conflitantes do Buildozer
+      run: |
+        rm -rf .buildozer
+        rm -rf ~/.buildozer
+
     - name: Compilando o aplicativo com Buildozer
       run: |
         yes | buildozer android debug
